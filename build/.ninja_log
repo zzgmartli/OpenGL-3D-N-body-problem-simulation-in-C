@@ -1,0 +1,6 @@
+# ninja log v7
+3	88	7987315537441011	CMakeFiles/main.dir/main.c.obj	5ffdbdbcbfc56f4f
+89	210	7987315538306135	main.exe	d313813f38c6c84f
+1	130	7987322763514730	build.ninja	d51bd6e26eb9727c
+3	75	7987322764674717	CMakeFiles/main.dir/main.c.obj	ffe388b28862deb1
+75	178	7987322765394729	main.exe	c71787801a8a5cab

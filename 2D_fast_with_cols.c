@@ -7,6 +7,8 @@
 #include <omp.h>
 #include <time.h>
 
+#pragma GCC optimize("O3,unroll-loops")
+
 #define PI 3.14159265358979323846
 #define MAX_NODE_NUM 400000
 #define MAX_BODY_NUM 10000

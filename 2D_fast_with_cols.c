@@ -16,11 +16,11 @@
 #define DELTA 0.01
 #define EPS 3.0
 #define POINT_SIZE 5.0 
+#define COLLISION_RADIUS 5.5
+#define STARTING_SPREAD 700.0
 #define MAXX 800
 #define MAXY 800
 #define NUM_THREADS 12
-#define STARTING_SPREAD 800.0
-#define COLLISION_RADIUS 5.5
 
 // quad tree
 typedef struct Body{

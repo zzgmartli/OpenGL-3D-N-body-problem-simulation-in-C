@@ -128,29 +128,29 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-3D.obj: 3D.c.obj
-.PHONY : 3D.obj
+2D_fast.obj: 2D_fast.c.obj
+.PHONY : 2D_fast.obj
 
 # target to build an object file
-3D.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/3D.c.obj
-.PHONY : 3D.c.obj
+2D_fast.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/2D_fast.c.obj
+.PHONY : 2D_fast.c.obj
 
-3D.i: 3D.c.i
-.PHONY : 3D.i
+2D_fast.i: 2D_fast.c.i
+.PHONY : 2D_fast.i
 
 # target to preprocess a source file
-3D.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/3D.c.i
-.PHONY : 3D.c.i
+2D_fast.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/2D_fast.c.i
+.PHONY : 2D_fast.c.i
 
-3D.s: 3D.c.s
-.PHONY : 3D.s
+2D_fast.s: 2D_fast.c.s
+.PHONY : 2D_fast.s
 
 # target to generate assembly for a file
-3D.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/3D.c.s
-.PHONY : 3D.c.s
+2D_fast.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/2D_fast.c.s
+.PHONY : 2D_fast.c.s
 
 # Help Target
 help:
@@ -161,9 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... main
-	@echo ... 3D.obj
-	@echo ... 3D.i
-	@echo ... 3D.s
+	@echo ... 2D_fast.obj
+	@echo ... 2D_fast.i
+	@echo ... 2D_fast.s
 .PHONY : help
 
 

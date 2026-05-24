@@ -71,29 +71,29 @@ include CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/codegen:
 .PHONY : CMakeFiles/main.dir/codegen
 
-CMakeFiles/main.dir/3D.c.obj: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/3D.c.obj: CMakeFiles/main.dir/includes_C.rsp
-CMakeFiles/main.dir/3D.c.obj: C:/Users/user-/OneDrive/Desktop/bimbim/3D.c
-CMakeFiles/main.dir/3D.c.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\user-\OneDrive\Desktop\bimbim\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/3D.c.obj"
-	D:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/3D.c.obj -MF CMakeFiles\main.dir\3D.c.obj.d -o CMakeFiles\main.dir\3D.c.obj -c C:\Users\user-\OneDrive\Desktop\bimbim\3D.c
+CMakeFiles/main.dir/2D_fast.c.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/2D_fast.c.obj: CMakeFiles/main.dir/includes_C.rsp
+CMakeFiles/main.dir/2D_fast.c.obj: C:/Users/user-/OneDrive/Desktop/bimbim/2D_fast.c
+CMakeFiles/main.dir/2D_fast.c.obj: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\user-\OneDrive\Desktop\bimbim\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/2D_fast.c.obj"
+	D:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/2D_fast.c.obj -MF CMakeFiles\main.dir\2D_fast.c.obj.d -o CMakeFiles\main.dir\2D_fast.c.obj -c C:\Users\user-\OneDrive\Desktop\bimbim\2D_fast.c
 
-CMakeFiles/main.dir/3D.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/3D.c.i"
-	D:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\user-\OneDrive\Desktop\bimbim\3D.c > CMakeFiles\main.dir\3D.c.i
+CMakeFiles/main.dir/2D_fast.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/2D_fast.c.i"
+	D:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\user-\OneDrive\Desktop\bimbim\2D_fast.c > CMakeFiles\main.dir\2D_fast.c.i
 
-CMakeFiles/main.dir/3D.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/3D.c.s"
-	D:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\user-\OneDrive\Desktop\bimbim\3D.c -o CMakeFiles\main.dir\3D.c.s
+CMakeFiles/main.dir/2D_fast.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/2D_fast.c.s"
+	D:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\user-\OneDrive\Desktop\bimbim\2D_fast.c -o CMakeFiles\main.dir\2D_fast.c.s
 
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/3D.c.obj"
+"CMakeFiles/main.dir/2D_fast.c.obj"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-main.exe: CMakeFiles/main.dir/3D.c.obj
+main.exe: CMakeFiles/main.dir/2D_fast.c.obj
 main.exe: CMakeFiles/main.dir/build.make
 main.exe: CMakeFiles/main.dir/linkLibs.rsp
 main.exe: CMakeFiles/main.dir/objects1.rsp

@@ -20,6 +20,7 @@
 #define STARTING_SPREAD 700.0
 #define MAXX 800
 #define MAXY 800
+#define INITIAL_VEL 1000
 #define NUM_THREADS 12
 
 // quad tree
@@ -367,7 +368,7 @@ void init_bodies(){
         double tx=-sin(angle);
         double ty=cos(angle);
 
-        double speed=1206.0/sqrt(r+10.0);
+        double speed=INITIAL_VEL/sqrt(r+10.0);
 
         bodies[i].x=x;
         bodies[i].y=y;

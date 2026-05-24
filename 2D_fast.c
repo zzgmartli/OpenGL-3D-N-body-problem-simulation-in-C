@@ -18,6 +18,7 @@
 #define POINT_SIZE 5.0 
 #define MAXX 600
 #define MAXY 600
+#define INITIAL_VEL 126.0
 #define STARTING_SPREAD 400.0
 #define NUM_THREADS 12
 
@@ -287,7 +288,7 @@ void init_bodies(){
         double tx=-sin(angle);
         double ty=cos(angle);
 
-        double speed=126.0/sqrt(r+10.0);
+        double speed=INITIAL_VEL/sqrt(r+10.0);
 
         bodies[i].x=x;
         bodies[i].y=y;

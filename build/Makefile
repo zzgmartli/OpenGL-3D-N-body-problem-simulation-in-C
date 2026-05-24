@@ -128,29 +128,29 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-2D_fast_with_cols.obj: 2D_fast_with_cols.c.obj
-.PHONY : 2D_fast_with_cols.obj
+2D_fast.obj: 2D_fast.c.obj
+.PHONY : 2D_fast.obj
 
 # target to build an object file
-2D_fast_with_cols.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/2D_fast_with_cols.c.obj
-.PHONY : 2D_fast_with_cols.c.obj
+2D_fast.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/2D_fast.c.obj
+.PHONY : 2D_fast.c.obj
 
-2D_fast_with_cols.i: 2D_fast_with_cols.c.i
-.PHONY : 2D_fast_with_cols.i
+2D_fast.i: 2D_fast.c.i
+.PHONY : 2D_fast.i
 
 # target to preprocess a source file
-2D_fast_with_cols.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/2D_fast_with_cols.c.i
-.PHONY : 2D_fast_with_cols.c.i
+2D_fast.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/2D_fast.c.i
+.PHONY : 2D_fast.c.i
 
-2D_fast_with_cols.s: 2D_fast_with_cols.c.s
-.PHONY : 2D_fast_with_cols.s
+2D_fast.s: 2D_fast.c.s
+.PHONY : 2D_fast.s
 
 # target to generate assembly for a file
-2D_fast_with_cols.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/2D_fast_with_cols.c.s
-.PHONY : 2D_fast_with_cols.c.s
+2D_fast.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/2D_fast.c.s
+.PHONY : 2D_fast.c.s
 
 # Help Target
 help:
@@ -161,9 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... main
-	@echo ... 2D_fast_with_cols.obj
-	@echo ... 2D_fast_with_cols.i
-	@echo ... 2D_fast_with_cols.s
+	@echo ... 2D_fast.obj
+	@echo ... 2D_fast.i
+	@echo ... 2D_fast.s
 .PHONY : help
 
 

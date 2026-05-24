@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/main.dir/2D_fast.c.obj"
-  "CMakeFiles/main.dir/2D_fast.c.obj.d"
+  "CMakeFiles/main.dir/2D_fast_with_cols.c.obj"
+  "CMakeFiles/main.dir/2D_fast_with_cols.c.obj.d"
   "libmain.dll.a"
   "main.exe"
   "main.exe.manifest"

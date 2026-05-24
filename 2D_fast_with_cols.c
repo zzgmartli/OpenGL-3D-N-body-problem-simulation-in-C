@@ -9,16 +9,17 @@
 
 #define PI 3.14159265358979323846
 #define MAX_NODE_NUM 400000
-#define MAX_BODY_NUM 1000
+#define MAX_BODY_NUM 10000
 #define MAX_RECURSION_DEPTH 30
 #define THETA 0.5
 #define G 0.016
 #define DELTA 0.01
 #define EPS 3.0
 #define POINT_SIZE 5.0 
-#define MAXX 600
-#define MAXY 600
+#define MAXX 800
+#define MAXY 800
 #define NUM_THREADS 12
+#define STARTING_SPREAD 800.0
 #define COLLISION_RADIUS 5.5
 
 // quad tree
@@ -288,10 +289,38 @@ void init_first_node(){
     create_node(cx-d/2,cy-d/2,cx+d/2,cy+d/2);
 }
 
+// sorting with Z shapes 
+unsigned int spread_bits(unsigned int x){
+    x&= 0x000003ff;
+    x=(x|(x<<16))&0x030000ff;
+    x=(x|(x<<8))&0x0300f00f;
+    x=(x|(x<<4))&0x030c30c3;
+    x=(x|(x<<2))&0x09249249;
+    return x;
+}
+
+unsigned int get_morton_code(double x,double y){
+    unsigned int ix=(unsigned int)((x+600.0)/1200.0*1023.0);
+    unsigned int iy=(unsigned int)((y+600.0)/1200.0*1023.0);
+    
+    return (spread_bits(iy)<<1)|spread_bits(ix);
+}
+
+int compare_bodies(const void* a, const void* b){
+    Body* b1=(Body*)a;
+    Body* b2=(Body*)b;
+    
+    unsigned int mc1=get_morton_code(b1->x,b1->y);
+    unsigned int mc2=get_morton_code(b2->x,b2->y);
+    
+    return (mc1>mc2)-(mc1<mc2);
+}
+
 void simulate_gravity(){
     reset_tree();
     init_first_node();
     insert_bodies();
+    qsort(bodies,MAX_BODY_NUM,sizeof(Body),compare_bodies);
     update_positions();
     check_collisions();
 }
@@ -328,7 +357,7 @@ void init_bodies(){
 
         double angle=randf(0.0,2.0*PI);
 
-        double r=sqrt(randf(0.0,1.0))*400.0;
+        double r=sqrt(randf(0.0,1.0))*STARTING_SPREAD;
 
         double x=cx+cos(angle)*r;
         double y=cy+sin(angle)*r;
@@ -338,7 +367,7 @@ void init_bodies(){
         double tx=-sin(angle);
         double ty=cos(angle);
 
-        double speed=126.0/sqrt(r+10.0);
+        double speed=1206.0/sqrt(r+10.0);
 
         bodies[i].x=x;
         bodies[i].y=y;
@@ -359,7 +388,7 @@ void init_bodies(){
     bodies[0].vx=0.0;
     bodies[0].vy=0.0;
 
-    bodies[0].mass=1000000.0;
+    bodies[0].mass=10000000.0;
 
     bodies[0].color[0]=0.0;
     bodies[0].color[1]=0.0;

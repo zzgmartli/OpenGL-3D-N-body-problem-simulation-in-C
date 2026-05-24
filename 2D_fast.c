@@ -18,6 +18,7 @@
 #define POINT_SIZE 5.0 
 #define MAXX 600
 #define MAXY 600
+#define STARTING_SPREAD 400.0
 #define NUM_THREADS 12
 
 // quad tree
@@ -207,10 +208,38 @@ void init_first_node(){
     create_node(cx-d/2,cy-d/2,cx+d/2,cy+d/2);
 }
 
+// sorting with Z shapes 
+unsigned int spread_bits(unsigned int x){
+    x&= 0x000003ff;
+    x=(x|(x<<16))&0x030000ff;
+    x=(x|(x<<8))&0x0300f00f;
+    x=(x|(x<<4))&0x030c30c3;
+    x=(x|(x<<2))&0x09249249;
+    return x;
+}
+
+unsigned int get_morton_code(double x,double y){
+    unsigned int ix=(unsigned int)((x+600.0)/1200.0*1023.0);
+    unsigned int iy=(unsigned int)((y+600.0)/1200.0*1023.0);
+    
+    return (spread_bits(iy)<<1)|spread_bits(ix);
+}
+
+int compare_bodies(const void* a, const void* b){
+    Body* b1=(Body*)a;
+    Body* b2=(Body*)b;
+    
+    unsigned int mc1=get_morton_code(b1->x,b1->y);
+    unsigned int mc2=get_morton_code(b2->x,b2->y);
+    
+    return (mc1>mc2)-(mc1<mc2);
+}
+
 // simulation
 void simulate_gravity(){
     reset_tree();
     init_first_node();
+    qsort(bodies,MAX_BODY_NUM,sizeof(Body),compare_bodies);
     insert_bodies();
     update_positions();
 }
@@ -235,6 +264,7 @@ void draw(){
     for(int i=0;i<MAX_BODY_NUM;++i) render_body(i);
 }
 
+// generate random input
 double randf(double min, double max){
     return min+(max-min)*((double)rand()/RAND_MAX);
 }
@@ -247,7 +277,7 @@ void init_bodies(){
 
         double angle=randf(0.0,2.0*PI);
 
-        double r=sqrt(randf(0.0,1.0))*400.0;
+        double r=sqrt(randf(0.0,1.0))*STARTING_SPREAD;
 
         double x=cx+cos(angle)*r;
         double y=cy+sin(angle)*r;

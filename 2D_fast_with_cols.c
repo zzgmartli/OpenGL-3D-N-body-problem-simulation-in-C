@@ -300,8 +300,8 @@ unsigned int spread_bits(unsigned int x){
 }
 
 unsigned int get_morton_code(double x,double y){
-    unsigned int ix=(unsigned int)((x+600.0)/1200.0*1023.0);
-    unsigned int iy=(unsigned int)((y+600.0)/1200.0*1023.0);
+    unsigned int ix=(unsigned int)((x+MAXX)/2*MAXX*1023.0);
+    unsigned int iy=(unsigned int)((y+MAXY)/2*MAXY*1023.0);
     
     return (spread_bits(iy)<<1)|spread_bits(ix);
 }

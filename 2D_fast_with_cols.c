@@ -12,17 +12,16 @@
 #define PI 3.14159265358979323846
 #define MAX_NODE_NUM 400000
 #define MAX_BODY_NUM 10000
-#define MAX_RECURSION_DEPTH 30
 #define THETA 0.5
 #define G 0.016
 #define DELTA 0.01
-#define EPS 3.0
+#define EPS 5.0
 #define POINT_SIZE 5.0 
 #define COLLISION_RADIUS 5.5
 #define STARTING_SPREAD 700.0
 #define MAXX 800
 #define MAXY 800
-#define INITIAL_VEL 1000
+#define INITIAL_VEL 200
 #define NUM_THREADS 12
 
 // quad tree
@@ -111,13 +110,8 @@ void calc_avg_vals(int root){
     for(int i=0;i<4;++i) calc_avg_vals(quad_tree[root].children[i]);
 }
 
-void insert_body(int root,int body_idx,int depth){
+void insert_body(int root,int body_idx){
     if(root==-1) return;
-
-    if(depth>MAX_RECURSION_DEPTH){
-        quad_tree[root].body_idx=body_idx;
-        return;
-    }
 
     agregate_vals(root,body_idx);
 
@@ -133,16 +127,16 @@ void insert_body(int root,int body_idx,int depth){
         split_node(root);
         
         int quad_old=get_quad_number(root,old_body_idx);
-        insert_body(quad_tree[root].children[quad_old],old_body_idx,depth+1);
+        insert_body(quad_tree[root].children[quad_old],old_body_idx);
         
         int quad_new=get_quad_number(root,body_idx);
-        insert_body(quad_tree[root].children[quad_new],body_idx,depth+1);
+        insert_body(quad_tree[root].children[quad_new],body_idx);
 
         return;
     }
 
     int quad=get_quad_number(root,body_idx);
-    insert_body(quad_tree[root].children[quad],body_idx,depth+1);
+    insert_body(quad_tree[root].children[quad],body_idx);
 }
 
 void apply_force(int root,int body_idx,double *fx,double *fy){
@@ -171,7 +165,7 @@ void apply_force(int root,int body_idx,double *fx,double *fy){
 }
 
 void insert_bodies(){
-    for(int i=0;i<MAX_BODY_NUM;++i) insert_body(0,i,0);
+    for(int i=0;i<MAX_BODY_NUM;++i) insert_body(0,i);
     calc_avg_vals(0);
 }
 
@@ -235,7 +229,7 @@ void collide_bodies(int body_a,int body_b){
     double overlap=(2.0*COLLISION_RADIUS)-d;
 
     double slop=0.05; 
-    double percent=0.5; 
+    double percent=0.8; 
 
     if (overlap>slop){
         double correction=(overlap/(1.0/ma+1.0/mb))*percent;
@@ -320,12 +314,15 @@ int compare_bodies(const void* a, const void* b){
 }
 
 void simulate_gravity(){
+    qsort(bodies,MAX_BODY_NUM,sizeof(Body),compare_bodies);
+    
     reset_tree();
     init_first_node();
     insert_bodies();
-    qsort(bodies,MAX_BODY_NUM,sizeof(Body),compare_bodies);
-    update_positions();
+    
     check_collisions();
+
+    update_positions();
 }
 
 void render_body(int body_idx){

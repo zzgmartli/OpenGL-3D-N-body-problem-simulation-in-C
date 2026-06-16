@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/Users/user-/OneDrive/Desktop/bimbim/build",
-  "command": "D:\\mingw64\\bin\\gcc.exe  @CMakeFiles/main.dir/includes_C.rsp -g -std=gnu11 -o CMakeFiles\\main.dir\\2D_fast_with_cols.c.obj -c C:\\Users\\user-\\OneDrive\\Desktop\\bimbim\\2D_fast_with_cols.c",
-  "file": "C:/Users/user-/OneDrive/Desktop/bimbim/2D_fast_with_cols.c",
-  "output": "CMakeFiles/main.dir/2D_fast_with_cols.c.obj"
-}
-]

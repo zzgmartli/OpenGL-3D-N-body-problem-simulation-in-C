@@ -1,3 +1,0 @@
-C:/Users/user-/OneDrive/Desktop/bimbim/build/CMakeFiles/main.dir
-C:/Users/user-/OneDrive/Desktop/bimbim/build/CMakeFiles/edit_cache.dir
-C:/Users/user-/OneDrive/Desktop/bimbim/build/CMakeFiles/rebuild_cache.dir
